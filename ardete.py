@@ -1,13 +1,18 @@
 import numpy as np
+import picamera
+import time
 import cv2
 import cv2.aruco as aruco
  
  
-cap = cv2.VideoCapture(0)
+#cap = cv2.VideoCapture(0)
+camera = picamera.PiCamera()
  
 while(True):
     # Capture frame-by-frame
-    ret, frame = cap.read()
+    #ret, frame = cap.read()
+    ret, frame = camera.capture()
+
     #print(frame.shape) #480x640
     # Our operations on the frame come here
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
